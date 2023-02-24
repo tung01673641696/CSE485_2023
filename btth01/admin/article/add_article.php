@@ -62,11 +62,51 @@
     <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
     <div class="row">
         <div class="col-sm">
-            <h3 class="text-center text-uppercase fw-bold">Thêm mới thể loại</h3>
+            <h3 class="text-center text-uppercase fw-bold">Thêm Bài Viết</h3>
 
             <form action="category.php" method="post">
                 <div class="input-group mt-3 mb-3">
-                    <span class="input-group-text" id="lblCatName">Tên thể loại</span>
+                    <span class="input-group-text" id="lblCatName">Tên bài viết</span>
+                    <input type="text" class="form-control" name="nameCategory"/>
+                </div>
+
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text" id="lblCatName">Tiêu đề</span>
+                    <input type="text" class="form-control" name="nameCategory"/>
+                </div>
+
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text" id="lblCatName">Tên bài hát</span>
+                    <input type="text" class="form-control" name="nameCategory"/>
+                </div>
+
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text" id="lblCatName">Mã thể loại</span>
+                    <input type="text" class="form-control" name="nameCategory"/>
+                </div>
+
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text" id="lblCatName">Tóm tắt</span>
+                    <input type="text" class="form-control" name="nameCategory"/>
+                </div>
+
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text" id="lblCatName">Nội dung</span>
+                    <input type="text" class="form-control" name="nameCategory"/>
+                </div>
+
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text" id="lblCatName">Mã tác giả</span>
+                    <input type="text" class="form-control" name="nameCategory"/>
+                </div>
+
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text" id="lblCatName">Ngày viết</span>
+                    <input type="date" class="form-control" name="nameCategory"/>
+                </div>
+
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text" id="lblCatName">Hình ảnh</span>
                     <input type="text" class="form-control" name="nameCategory"/>
                 </div>
 
