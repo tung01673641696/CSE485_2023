@@ -1,3 +1,20 @@
+<?php
+    include "../../connect.php";
+
+    if(isset($_GET["ma_tloai"])) {
+        $ma_tloai = $_GET["ma_tloai"];
+    }
+
+    $sql="SELECT * FROM theloai WHERE ma_tloai = $ma_tloai";
+    $qr = mysqli_query($connect,$sql);
+    $rows = mysqli_fetch_array($qr);
+
+    if(isset($_POST["save"])) {
+        $ma_tloai = $_POST["matheloai"];
+        $ten_tloai = $_POST["tentheloai"];
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,19 +64,19 @@
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Sửa thông tin thể loại</h3>
-                <form action="process_add_category.php" method="post">
-                <div class="input-group mt-3 mb-3">
+                <form method="post">
+                    <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatId">Mã thể loại</span>
-                        <input type="text" class="form-control" name="txtCatId" readonly value="1">
+                        <input type="text" value="<?php echo $rows["ma_tloai"] ?>" class="form-control" name="matheloai">
                     </div>
 
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Tên thể loại</span>
-                        <input type="text" class="form-control" name="txtCatName" value = "Nhạc trữ tình">
+                        <input type="text" value="<?php echo $rows["ten_tloai"] ?>" class="form-control" name="tentheloai">
                     </div>
 
-                    <div class="form-group  float-end ">
-                        <input type="submit" value="Lưu lại" class="btn btn-success">
+                    <div class="form-group float-end">
+                        <button name="save" class="btn btn-success">Lưu lại</button>
                         <a href="category.php" class="btn btn-warning ">Quay lại</a>
                     </div>
                 </form>
