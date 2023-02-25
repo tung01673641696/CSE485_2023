@@ -12,6 +12,18 @@
     if(isset($_POST["save"])) {
         $ma_tloai = $_POST["matheloai"];
         $ten_tloai = $_POST["tentheloai"];
+
+        if($ma_tloai =="") {
+            echo "vui lòng nhập mã thể loại";
+        }
+        if($ten_tloai==""){
+            echo "vui lòng nhập tên thể loại";
+        }
+        if($ma_tloai !="" && $ten_tloai!="") {
+            $sql = "UPDATE theloai SET ma_tloai='$ma_tloai',ten_tloai='$ten_tloai' WHERE ma_tloai=$ma_tloai";
+            $qr = mysqli_query($connect,$sql);
+            header("location:category.php");
+        }
     }
 ?>
 

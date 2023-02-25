@@ -74,16 +74,16 @@
                                 <th scope="row"><?php echo $rows["ma_tgia"] ?></th>
                                 <td><?php echo $rows["ten_tgia"] ?></td>
                                 <td>
-                                    <a href="edit_category.php?id=1"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="edit_author.php?ma_tgia=<?php echo $rows["ma_tgia"] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                                 </td>
                                 <td>
-                                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                                    <a href="delete_author.php?ma_tgia=<?php echo $rows["ma_tgia"] ?>"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                        <?php
                             }
                         ?>
-                    </tbody> -->
+                    </tbody>
                 </table>
             </div>
         </div>
