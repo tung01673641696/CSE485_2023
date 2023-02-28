@@ -57,12 +57,10 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">id bài viết</th>
                             <th scope="col">Tên bài viết</th>
                             <th scope="col">Tiêu đề</th>
                             <th scope="col">Tên bài hát</th>
-                            <th scope="col">Tóm tắt</th>
-                            <th scope="col">Nội dung</th>
                             <th scope="col">Hình ảnh</th>
                             <th>Sửa</th>
                             <th>Xóa</th>
@@ -79,14 +77,12 @@
                                 <th scope="row"><?php echo $rows["ten_bviet"] ?></th>
                                 <th scope="row"><?php echo $rows["tieude"] ?></th>
                                 <th scope="row"><?php echo $rows["ten_bhat"] ?></th>
-                                <th scope="row"><?php echo $rows["tomtat"] ?></th>
-                                <th scope="row"><?php echo $rows["noidung"] ?></th>
                                 <th scope="row"><img src="../../images/songs/<?php echo $rows["hinhanh"] ?>" style="width: 100px"/></th>
                                 <td>
                                     <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
                                 </td>
                                 <td>
-                                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                                    <a href="delete_article.php?ma_bviet=<?php echo $rows["ma_bviet"] ?>"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                        <?php

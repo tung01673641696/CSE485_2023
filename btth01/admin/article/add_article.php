@@ -4,13 +4,23 @@
     if(isset($_POST['add'])) {
         echo "hehe";
 
-        // $nameCategory = $_POST['nameCategory'];
-        // $sql = "INSERT INTO theloai(ten_tloai) VALUES('$nameCategory')";
-        // $qr = mysqli_query($connect,$sql);
-        // header("location: category.php");
+        $nameCategory = $_POST['nameCategory'];
+        $titleCategory= $_POST['titleCategory'];
+        $nameSong= $_POST['nameSong'];
+        $nameCate= $_POST['name'];
+        $summary= $_POST['summary'];
+        $content= $_POST['content']; 
+        $nameAuthor= $_POST['nameAuthor']; 
+        $date= $_POST['date'];
+        $image= $_POST['image'];
+
+        $sql = "INSERT INTO baiviet(ten_tloai,tieude,ten_bhat,ma_tloai,tomtat,noidung,ma_tgia,ngayviet,hinhanh) 
+        VALUES('$nameCategory','$titleCategory','$nameSong','$nameCate','$summary','$content','$nameAuthor','$date','$image')";
+        $qr = mysqli_query($connect,$sql);
+        header("location: article.php");
     }
 
-    else echo "thất bại"
+    else echo "thất bạkkkkkki"
 ?>
 
 
@@ -45,10 +55,10 @@
                     <a class="nav-link" href="../index.php">Trang ngoài</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="category.php">Thể loại</a>
+                    <a class="nav-link" href="../category/category.php">Thể loại</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="author.php">Tác giả</a>
+                    <a class="nav-link" href="../author/author.php">Tác giả</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="article.php">Bài viết</a>
@@ -64,7 +74,7 @@
         <div class="col-sm">
             <h3 class="text-center text-uppercase fw-bold">Thêm Bài Viết</h3>
 
-            <form action="category.php" method="post">
+            <form method="post">
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblCatName">Tên bài viết</span>
                     <input type="text" class="form-control" name="nameCategory"/>
@@ -72,46 +82,68 @@
 
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblCatName">Tiêu đề</span>
-                    <input type="text" class="form-control" name="nameCategory"/>
+                    <input type="text" class="form-control" name="titleCategory"/>
                 </div>
 
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblCatName">Tên bài hát</span>
-                    <input type="text" class="form-control" name="nameCategory"/>
+                    <input type="text" class="form-control" name="nameSong"/>
                 </div>
 
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblCatName">Mã thể loại</span>
-                    <input type="text" class="form-control" name="nameCategory"/>
+                    <select name="theloai">
+                        <?php
+
+                            $sql_tl = "SELECT * FROM theloai";
+                            $qr_tl = mysqli_query($connect,$sql_tl);
+                            while($rows=mysqli_fetch_assoc($qr_tl)){
+                        ?>
+                            <option name="<?php echo $rows["ma_tloai"] ?>"><?php echo $rows["ten_tloai"] ?></option>
+                        <?php
+                            }
+                        ?>
+                    </select>
                 </div>
 
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblCatName">Tóm tắt</span>
-                    <input type="text" class="form-control" name="nameCategory"/>
+                    <input type="text" class="form-control" name="summary"/>
                 </div>
 
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblCatName">Nội dung</span>
-                    <input type="text" class="form-control" name="nameCategory"/>
+                    <input type="text" class="form-control" name="content"/>
                 </div>
 
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblCatName">Mã tác giả</span>
-                    <input type="text" class="form-control" name="nameCategory"/>
+                    <select name="tacgia">
+                        <?php
+
+                            $sql_tg = "SELECT * FROM tacgia";
+                            $qr_tg = mysqli_query($connect,$sql_tg);
+                            while($rows=mysqli_fetch_assoc($qr_tg)){
+                        ?>
+                            <option nameAuthor="<?php echo $rows["ma_tgia"] ?>"><?php echo $rows["ten_tgia"] ?></option>
+                        <?php
+                            }
+                        ?>
+                    </select>
                 </div>
 
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblCatName">Ngày viết</span>
-                    <input type="date" class="form-control" name="nameCategory"/>
+                    <input type="date" class="form-control" name="date"/>
                 </div>
 
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblCatName">Hình ảnh</span>
-                    <input type="text" class="form-control" name="nameCategory"/>
+                    <input type="file" class="form-control" name="image"/>
                 </div>
 
                 <div class="form-group float-end ">
-                    <button type="submit" name="add" class="btn btn-primary">Add</button>
+                    <button name="add" class="btn btn-primary">Add</button>
                     <a href="category.php" class="btn btn-warning ">Quay lại</a>
                 </div>
             </form>

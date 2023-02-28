@@ -1,3 +1,23 @@
+<?php
+    include "../connect.php";
+
+    $sql_user = "SELECT * FROM user";
+    $qr_user = mysqli_query($connect,$sql_user);
+    $total_user = mysqli_num_rows($qr_user);
+
+    $sql_cate = "SELECT * FROM theloai";
+    $qr_cate = mysqli_query($connect,$sql_cate);
+    $total_cate = mysqli_num_rows($qr_cate);
+
+    $sql_tg = "SELECT * FROM tacgia";
+    $qr_tg = mysqli_query($connect,$sql_tg);
+    $total_tg = mysqli_num_rows($qr_tg);
+
+    $sql_bv = "SELECT * FROM baiviet";
+    $qr_bv = mysqli_query($connect,$sql_bv);
+    $total_bv = mysqli_num_rows($qr_bv);
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +76,7 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            110
+                            <?php echo $total_user ?>
                         </h5>
                     </div>
                 </div>
@@ -70,7 +90,7 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            10
+                            <?php echo $total_cate ?>
                         </h5>
                     </div>
                 </div>
@@ -84,7 +104,7 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            20
+                            <?php echo $total_tg ?>
                         </h5>
                     </div>
                 </div>
@@ -98,7 +118,7 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            110
+                            <?php echo $total_bv ?>
                         </h5>
                     </div>
                 </div>
